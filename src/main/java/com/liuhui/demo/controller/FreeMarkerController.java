@@ -33,7 +33,6 @@ public class FreeMarkerController {
     @RequestMapping("/ftlToHtml2")
     public void ftlToHtml2() throws Exception {
         Map catalogData = new HashMap<>();
-        Map data = new HashMap<>();
         List articlePage = new ArrayList<>();
         Catalog catalog = new Catalog();
         catalog.setName("测试栏目");
@@ -51,10 +50,8 @@ public class FreeMarkerController {
                 article.setContent("正文部分开始……");
                 articles.add(article);
             }
-            data.put("Page" + (i + 1),articles);
             articlePage.add(articles);
         }
-        catalogData.put("ArticlePages",data);
         catalogData.put("ArticlePage",articlePage);
         FreeMarker freeMarker = new FreeMarker();
         freeMarker.ftlToHtml2(catalogData);
