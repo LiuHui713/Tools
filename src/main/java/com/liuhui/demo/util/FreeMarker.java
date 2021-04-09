@@ -33,7 +33,39 @@ public class FreeMarker {
         // 输出文件到指定目录
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
-        String fileName = "D:/workfiles/huaqiyun/PC/" + formatter.format(date) + "/FreeMarkerStaticPage.html";
+        String fileName = "D:/workfiles/huaqiyun/" + formatter.format(date) + "/FreeMarkerStaticPage.html";
+        File file1 = new File(fileName);
+        String filePath = fileName.substring(0, fileName.lastIndexOf('/'));
+        File f = new File(filePath);
+        if (!f.exists()) {
+            f.mkdirs();
+        }
+        file1.createNewFile();
+        FileOutputStream fileOutputStream = new FileOutputStream(file1);
+        IOUtils.copy(inputStream, fileOutputStream);
+        // 关闭流
+        inputStream.close();
+        fileOutputStream.close();
+    }
+
+    //ftl文件转静态页面(数据模型包含集合)
+    public void ftlToHtml2(Map data) throws Exception {
+        // 创建配置类
+        Configuration configuration = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
+        // 设置模板路径
+        String classpath = this.getClass().getResource("/").getPath();
+        File file = new File(classpath + PATH);
+        configuration.setDirectoryForTemplateLoading(file);
+        // 获取模板
+        Template template = configuration.getTemplate("freemarkerCatalog.ftl");
+        // 合并模板和数据模型
+        String content = FreeMarkerTemplateUtils.processTemplateIntoString(template, data);
+        System.out.println("content:{}" + content);
+        InputStream inputStream = new ByteArrayInputStream(content.getBytes("UTF-8"));
+        // 输出文件到指定目录
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+        String fileName = "D:/workfiles/huaqiyun/" + formatter.format(date) + "/FreeMarkerStaticPageCatalog.html";
         File file1 = new File(fileName);
         String filePath = fileName.substring(0, fileName.lastIndexOf('/'));
         File f = new File(filePath);

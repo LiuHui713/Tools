@@ -4,6 +4,25 @@ public class Catalog {
     private Long id;
     private String name;
     private Long parentId;
+    private Long listPageSize;
+
+    public Long getListPageSize() {
+        return listPageSize;
+    }
+
+    public void setListPageSize(Long listPageSize) {
+        this.listPageSize = listPageSize;
+    }
+
+    public Long getListPage() {
+        return listPage;
+    }
+
+    public void setListPage(Long listPage) {
+        this.listPage = listPage;
+    }
+
+    private Long listPage;
 
     public Long getId() {
         return id;
