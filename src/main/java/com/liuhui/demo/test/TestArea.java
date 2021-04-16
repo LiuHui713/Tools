@@ -28,7 +28,7 @@ public class TestArea {
         Article article = new Article();
         article.setAuthor("LiuHui");
         article.setContent("正文start……正文end");
-        article.setDate(DateFormat.getDateInstance().format(new Date()));
+        article.setDate(new Date());
         article.setTitle("页面静态化");
         Map data = new HashMap<>();
         data.put("article",beanToMap(article));

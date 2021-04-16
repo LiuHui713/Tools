@@ -1,11 +1,13 @@
 package com.liuhui.demo.bean;
 
+import java.util.Date;
+
 public class Article {
     private Long id;
     private String title;
     private String author;
     private String content;
-    private String date;
+    private Date date;
 
     public Long getId() {
         return id;
@@ -39,11 +41,11 @@ public class Article {
         this.content = content;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }

@@ -19,7 +19,7 @@ public class FreeMarkerController {
         Article article = new Article();
         article.setAuthor("LiuHui");
         article.setContent("正文start……正文end");
-        article.setDate(DateFormat.getDateInstance().format(new Date()));
+        article.setDate(new Date());
         article.setTitle("页面静态化");
         Catalog catalog = new Catalog();
         catalog.setName("测试栏目");
@@ -46,7 +46,7 @@ public class FreeMarkerController {
             for (int j = 0; j < listPageSize; j++) {
                 Article article = new Article();
                 article.setTitle("文稿"  + (i + 1) + "." + (j + 1));
-                article.setDate(DateFormat.getDateInstance().format(new Date()));
+                article.setDate(new Date());
                 article.setContent("正文部分开始……");
                 articles.add(article);
             }

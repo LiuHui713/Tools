@@ -16,7 +16,7 @@
         <#list page as article>
             <tr>
                 <td>${article.title}</td>
-                <td>${article.date}</td>
+                <td>${article.date?string("yyyy-MM-dd HH:mm:ss")}</td>
                 <td>${article.content}</td>
             </tr>
         </#list>
